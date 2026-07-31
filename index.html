@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fernkeep — Your expertise, beautifully represented online.</title>
+<meta name="description" content="Fernkeep designs and builds custom websites for established professionals — therapists, coaches, consultants and creative practitioners — in Toronto and across Canada.">
+<meta property="og:title" content="Fernkeep — Your expertise, beautifully represented online.">
+<meta property="og:description" content="Custom websites for established professionals. Designed, built and handed over in Toronto.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fernkeep.com">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   FERNKEEP — BRAND DNA
+   ══════════════════════════════════════════════ */
+:root{
+  --forest:#2C5F2D; --forest-deep:#1E4420; --sage:#A8B5A0; --gold:#C9A961;
+  --cream:#FAF8F5; --charcoal:#2D3436;
+  --sage-soft:#EDF0EA; --sage-line:rgba(168,181,160,.38);
+  --charcoal-70:rgba(45,52,54,.72); --charcoal-55:rgba(45,52,54,.55);
+  --cream-warm:#F4F1EB;
+  --display:'Playfair Display',Georgia,serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --gutter:clamp(1.5rem,5vw,3rem);
+  --section:clamp(4.5rem,9vw,8rem);
+  --max:1180px; --measure:62ch;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--cream);color:var(--charcoal);font-family:var(--body);
+  font-size:clamp(1rem,.96rem + .22vw,1.0625rem);line-height:1.75;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--forest-deep);
+  line-height:1.16;letter-spacing:-.015em;margin:0;text-wrap:balance;}
+h1{font-size:clamp(2.35rem,1.6rem + 3.4vw,4.15rem);letter-spacing:-.025em;}
+h2{font-size:clamp(1.85rem,1.35rem + 2.1vw,2.9rem);letter-spacing:-.02em;}
+h3{font-size:clamp(1.2rem,1.08rem + .5vw,1.45rem);}
+p{margin:0;max-width:var(--measure);}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);}
+.section{padding-block:var(--section);}
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--forest);display:flex;align-items:center;gap:.85rem;margin-bottom:1.6rem;}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);flex:none;}
+.accent{font-family:var(--display);font-style:italic;font-weight:500;color:var(--forest);}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:54px;
+  padding:.95rem 2rem;font-family:var(--body);font-size:.945rem;font-weight:500;
+  text-decoration:none;border-radius:2px;border:1px solid transparent;cursor:pointer;
+  transition:background-color .35s,color .35s,border-color .35s,transform .35s;}
+.btn-primary{background:var(--forest);color:var(--cream);}
+.btn-primary:hover{background:var(--forest-deep);transform:translateY(-1px);}
+.btn-ghost{border-color:var(--sage);color:var(--forest-deep);background:transparent;}
+.btn-ghost:hover{border-color:var(--forest);background:rgba(44,95,45,.045);}
+.btn-gold{background:var(--gold);color:#3A2E12;}
+.btn-gold:hover{background:#BC9A50;transform:translateY(-1px);}
+.btn .arw{transition:transform .35s;}
+.btn:hover .arw{transform:translateX(4px);}
+.btn-sm{min-height:44px;padding:.6rem 1.1rem;font-size:.85rem;}
+
+/* ═══ HEADER ═══ */
+header{position:sticky;top:0;z-index:70;background:rgba(250,248,245,.82);
+  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid transparent;transition:border-color .4s,box-shadow .4s;}
+header.scrolled{border-bottom-color:var(--sage-line);box-shadow:0 1px 24px rgba(30,68,32,.045);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:74px;}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:var(--display);font-size:1.32rem;
+  font-weight:600;color:var(--forest-deep);text-decoration:none;letter-spacing:-.015em;}
+.logo svg{flex:none;}
+.nav-right{display:flex;align-items:center;gap:1.4rem;}
+.nav-links{display:none;align-items:center;gap:2rem;}
+@media(min-width:1000px){.nav-links{display:flex;}}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--charcoal-70);text-decoration:none;
+  position:relative;padding-block:.4rem;transition:color .3s;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .38s cubic-bezier(.4,0,.2,1);}
+.nav-links a:hover{color:var(--forest-deep);}
+.nav-links a:hover::after{transform:scaleX(1);}
+/* CTA now visible at every width — mobile drop-off fix */
+.nav-cta{display:inline-flex;white-space:nowrap;}
+@media(max-width:640px){.nav-cta{padding:.55rem .8rem;font-size:.78rem;min-height:42px;}}
+/* Very small phones: shorten the button label so the header never crowds */
+.nav-cta .full{display:inline;} .nav-cta .short{display:none;}
+@media(max-width:430px){
+  .nav-cta .full{display:none;} .nav-cta .short{display:inline;}
+  .logo{font-size:1.15rem;gap:.5rem;}
+  .nav{gap:.6rem;min-height:66px;}
+  .nav-right{gap:.6rem;}
+}
+.menu-btn{display:none;background:none;border:1px solid var(--sage-line);border-radius:2px;
+  width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;flex:none;}
+@media(max-width:999px){.menu-btn{display:flex;}}
+.menu-btn span{display:block;width:17px;height:1.5px;background:var(--forest-deep);position:relative;transition:background .3s;}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:17px;height:1.5px;
+  background:var(--forest-deep);transition:transform .34s cubic-bezier(.4,0,.2,1);}
+.menu-btn span::before{top:-6px;} .menu-btn span::after{top:6px;}
+.menu-btn[aria-expanded="true"] span{background:transparent;}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+.mobile-menu{display:none;border-top:1px solid var(--sage-line);background:var(--cream);
+  padding:.75rem var(--gutter) 1.5rem;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:.95rem 0;font-size:1.02rem;font-weight:500;
+  color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--sage-line);}
+.mobile-menu a:last-child{border-bottom:none;}
+
+/* ══════════════════════════════════════════════
+   1 · HERO — FROSTED GLASS
+   ══════════════════════════════════════════════ */
+.hero{position:relative;padding-block:clamp(4rem,8vw,6.5rem) clamp(4rem,8vw,7rem);
+  overflow:hidden;isolation:isolate;}
+.garden{position:absolute;inset:-12%;z-index:-3;filter:blur(48px) saturate(1.25);opacity:.85;pointer-events:none;}
+.blob{position:absolute;border-radius:50%;}
+.b1{width:46%;aspect-ratio:1.3;left:-6%;top:2%;background:radial-gradient(circle at 40% 40%,#3F7A3C,#2C5F2D 55%,rgba(44,95,45,0) 72%);}
+.b2{width:38%;aspect-ratio:1;right:-4%;top:-8%;background:radial-gradient(circle at 50% 50%,#7E9B72,#A8B5A0 50%,rgba(168,181,160,0) 70%);}
+.b3{width:42%;aspect-ratio:1.1;right:8%;bottom:-16%;background:radial-gradient(circle at 45% 45%,#4E8A46,#2C5F2D 52%,rgba(44,95,45,0) 72%);}
+.b4{width:26%;aspect-ratio:1;left:26%;bottom:-6%;background:radial-gradient(circle at 50% 50%,#C9A961,rgba(201,169,97,0) 66%);opacity:.5;}
+.b5{width:30%;aspect-ratio:1;left:44%;top:-14%;background:radial-gradient(circle at 50% 50%,#8FA085,rgba(143,160,133,0) 68%);}
+@media(prefers-reduced-motion:no-preference){
+  .b1{animation:drift1 44s ease-in-out infinite;}
+  .b2{animation:drift2 52s ease-in-out infinite;}
+  .b3{animation:drift1 60s ease-in-out infinite reverse;}
+  .b5{animation:drift2 48s ease-in-out infinite reverse;}
+}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,-4%) scale(1.06)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,3%) scale(1.05)}}
+.silhouettes{position:absolute;inset:0;z-index:-2;filter:blur(14px);opacity:.28;pointer-events:none;}
+.silhouettes svg{position:absolute;}
+.sil-a{left:-3%;top:4%;width:min(300px,30vw);color:var(--forest-deep);}
+.sil-b{right:-2%;bottom:-4%;width:min(340px,34vw);color:var(--forest-deep);transform:scaleX(-1);}
+.pane{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(165deg,rgba(250,248,245,.86),rgba(250,248,245,.79) 45%,rgba(244,241,235,.83));
+  backdrop-filter:blur(22px) saturate(1.15);-webkit-backdrop-filter:blur(22px) saturate(1.15);}
+.pane::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:radial-gradient(circle at 18% 26%,rgba(255,255,255,.7) 0 1.5px,transparent 2px),
+   radial-gradient(circle at 62% 12%,rgba(255,255,255,.55) 0 1px,transparent 1.6px),
+   radial-gradient(circle at 84% 58%,rgba(255,255,255,.6) 0 1.8px,transparent 2.4px),
+   radial-gradient(circle at 34% 74%,rgba(255,255,255,.5) 0 1.2px,transparent 1.8px),
+   radial-gradient(circle at 8% 62%,rgba(255,255,255,.45) 0 1px,transparent 1.5px);
+  background-size:340px 340px,290px 290px,410px 410px,360px 360px,250px 250px;}
+.pane::after{content:"";position:absolute;inset:0;opacity:.16;
+  background:repeating-linear-gradient(103deg,transparent 0 26px,rgba(255,255,255,.85) 26px 27px,transparent 27px 54px);}
+.hero .wrap{position:relative;z-index:1;}
+.hero h1{max-width:16ch;}
+.hero-lede{font-size:clamp(1.08rem,1.02rem + .38vw,1.24rem);color:var(--charcoal-70);
+  max-width:50ch;margin-top:1.8rem;line-height:1.72;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.6rem;}
+.hero-note{margin-top:2.2rem;font-size:.855rem;color:var(--charcoal-55);
+  display:flex;align-items:center;gap:.6rem;}
+.hero-note svg{flex:none;}
+
+/* ══════════════════════════════════════════════
+   2 · THE GAP — trimmed to three
+   ══════════════════════════════════════════════ */
+.band-sage{background:var(--sage-soft);}
+.band-cream{background:var(--cream-warm);}
+.band-forest{background:var(--forest-deep);color:var(--cream);}
+.band-forest h2,.band-forest h3{color:var(--cream);}
+.band-forest .eyebrow{color:var(--sage);}
+.split{display:grid;gap:clamp(2.2rem,5vw,4.5rem);align-items:start;}
+@media(min-width:900px){.split{grid-template-columns:.92fr 1.08fr;}}
+.gap-list{list-style:none;margin:0;padding:0;display:grid;gap:1.3rem;}
+.gap-list li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;
+  padding-bottom:1.3rem;border-bottom:1px solid var(--sage-line);color:var(--charcoal-70);max-width:var(--measure);}
+.gap-list li:last-child{border-bottom:none;padding-bottom:0;}
+.gap-list .mark{font-family:var(--display);font-size:.85rem;font-weight:600;color:var(--gold);
+  margin-top:.35rem;letter-spacing:.06em;}
+.gap-list strong{display:block;color:var(--forest-deep);font-weight:600;font-size:1.02rem;margin-bottom:.25rem;}
+
+/* ══════════════════════════════════════════════
+   3 · TRY IT — moved up, given a hard visual break
+   ══════════════════════════════════════════════ */
+.try-hd{max-width:34ch;margin-bottom:clamp(2rem,4vw,3rem);}
+.try-hd p{color:var(--charcoal-70);margin-top:1.3rem;}
+.nudge{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.4rem;
+  background:var(--gold);color:#3A2E12;font-size:.7rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;padding:.45rem 1rem;border-radius:2px;}
+.editor{display:grid;gap:1.5rem;align-items:start;}
+@media(min-width:880px){.editor{grid-template-columns:.85fr 1.15fr;}}
+.panel{background:#fff;border:1px solid var(--sage-line);border-radius:4px;overflow:hidden;
+  box-shadow:0 10px 40px rgba(30,68,32,.06);}
+.panel-top{display:flex;align-items:center;gap:.5rem;padding:.85rem 1.1rem;
+  background:var(--sage-soft);border-bottom:1px solid var(--sage-line);}
+.dot3{width:9px;height:9px;border-radius:50%;background:var(--sage);opacity:.55;flex:none;}
+.panel-title{margin-left:.5rem;font-size:.74rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--charcoal-55);}
+.panel-body{padding:1.5rem 1.4rem 1.7rem;}
+.field{margin-bottom:1.3rem;}
+.field label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(45,52,54,.5);margin-bottom:.5rem;}
+.field input,.field textarea{width:100%;padding:.8rem .9rem;font-family:var(--body);font-size:.94rem;
+  color:var(--charcoal);background:var(--cream);border:1px solid var(--sage-line);border-radius:3px;
+  transition:border-color .3s,box-shadow .3s;resize:vertical;line-height:1.6;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--forest);
+  box-shadow:0 0 0 3px rgba(44,95,45,.09);}
+.swatches{display:flex;gap:.6rem;}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;
+  transition:transform .25s,border-color .25s;padding:0;}
+.sw:hover{transform:scale(1.1);}
+.sw[aria-pressed="true"]{border-color:var(--charcoal);}
+.publish{width:100%;min-height:50px;margin-top:.4rem;border:none;border-radius:3px;
+  background:var(--forest);color:var(--cream);font-family:var(--body);font-size:.92rem;font-weight:500;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.55rem;
+  transition:background .3s,transform .3s;}
+.publish:hover{background:var(--forest-deep);transform:translateY(-1px);}
+.publish.done{background:var(--gold);color:#3A2E12;}
+.hint{font-size:.78rem;color:var(--charcoal-55);margin-top:.9rem;text-align:center;}
+.preview{border:1px solid var(--sage-line);border-radius:4px;overflow:hidden;background:#fff;
+  box-shadow:0 10px 40px rgba(30,68,32,.06);}
+.browser-bar{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;
+  background:var(--sage-soft);border-bottom:1px solid var(--sage-line);}
+.url{flex:1;margin-left:.5rem;background:#fff;border:1px solid var(--sage-line);border-radius:20px;
+  padding:.3rem .9rem;font-size:.74rem;color:var(--charcoal-55);}
+.preview-canvas{padding:clamp(2.2rem,5vw,3.4rem) clamp(1.6rem,4vw,2.8rem);
+  transition:background-color .6s;min-height:300px;display:flex;flex-direction:column;justify-content:center;}
+#pvHead{font-family:var(--display);font-size:clamp(1.5rem,1.2rem + 1.4vw,2.15rem);font-weight:600;
+  line-height:1.2;transition:color .6s;margin:0 0 1rem;}
+#pvBody{font-size:.96rem;line-height:1.72;max-width:44ch;transition:color .6s;margin:0;}
+.pv-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:1.8rem;
+  padding:.8rem 1.6rem;border-radius:2px;font-size:.88rem;font-weight:500;align-self:flex-start;
+  transition:background-color .6s,color .6s;}
+.flash{animation:flash .8s ease;}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(201,169,97,.55)}100%{box-shadow:0 0 0 16px rgba(201,169,97,0)}}
+.try-foot{margin-top:2.2rem;font-size:.87rem;color:var(--charcoal-55);max-width:60ch;}
+
+/* ══════════════════════════════════════════════
+   4 · PROCESS — GROWING FERN
+   ══════════════════════════════════════════════ */
+.process-intro{max-width:34ch;margin-bottom:clamp(1.5rem,4vw,2.5rem);}
+.process-intro p{color:rgba(250,248,245,.72);margin-top:1.3rem;}
+.process-grid{display:grid;gap:0;}
+@media(min-width:900px){.process-grid{grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);}}
+.fern-col{display:none;}
+@media(min-width:900px){.fern-col{display:flex;position:sticky;top:0;height:100vh;align-items:center;justify-content:center;}}
+.fern-svg{width:100%;height:78vh;overflow:visible;}
+.stem{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;opacity:.85;}
+.frond{transform-box:fill-box;transform-origin:var(--ox,0%) 50%;
+  transform:scale(0) rotate(var(--r0,-14deg));opacity:0;
+  transition:transform 1.05s cubic-bezier(.16,.84,.34,1),opacity .75s ease;}
+.frond.grown{transform:scale(1) rotate(0deg);opacity:1;}
+.tip{filter:url(#glow);} .tip-core{fill:var(--gold);} .tip-halo{fill:var(--gold);opacity:.22;}
+.steps{padding-block:clamp(.5rem,2vw,1.5rem);}
+.step{padding-block:clamp(2.6rem,8vh,5rem);display:grid;grid-template-columns:auto 1fr;
+  gap:clamp(1.2rem,3vw,2.2rem);align-items:start;opacity:.34;transform:translateY(14px);
+  transition:opacity .8s,transform .8s cubic-bezier(.22,.61,.36,1);}
+.step.active{opacity:1;transform:none;}
+.step-n{font-family:var(--display);font-size:.9rem;font-weight:600;letter-spacing:.1em;
+  color:var(--sage);padding-top:.5rem;min-width:2.2rem;transition:color .6s;}
+.step.active .step-n{color:var(--gold);}
+.step h3{font-size:clamp(1.22rem,1.1rem + .55vw,1.5rem);margin-bottom:.65rem;}
+.step p{color:rgba(250,248,245,.74);font-size:.95rem;}
+.steps-rail-wrap{position:relative;padding-left:1.6rem;}
+.rail{position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(168,181,160,.2);}
+.rail-fill{position:absolute;left:0;top:0;width:2px;background:var(--gold);height:0;}
+@media(min-width:900px){.steps-rail-wrap{padding-left:0;} .rail{display:none;}}
+
+/* ══════════════════════════════════════════════
+   5 · WORK
+   ══════════════════════════════════════════════ */
+.case{border:1px solid var(--sage-line);border-radius:3px;background:var(--cream);overflow:hidden;}
+.case-head{padding:clamp(1.8rem,3.5vw,2.6rem);border-bottom:1px solid var(--sage-line);}
+.case-meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.3rem;}
+.tag{font-size:.7rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--forest);
+  background:var(--sage-soft);border:1px solid var(--sage-line);padding:.4rem .8rem;border-radius:2px;}
+.case-body{display:grid;gap:0;}
+@media(min-width:820px){.case-body{grid-template-columns:1fr 1fr;}}
+.case-col{padding:clamp(1.8rem,3.5vw,2.6rem);}
+.case-col + .case-col{border-top:1px solid var(--sage-line);}
+@media(min-width:820px){.case-col + .case-col{border-top:none;border-left:1px solid var(--sage-line);}}
+.case-col h4{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--charcoal-55);margin:0 0 1.1rem;}
+.case-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.85rem;}
+.case-col li{display:grid;grid-template-columns:auto 1fr;gap:.7rem;font-size:.92rem;
+  color:var(--charcoal-70);line-height:1.6;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:.6rem;flex:none;}
+.case-foot{padding:clamp(1.4rem,2.6vw,1.9rem) clamp(1.8rem,3.5vw,2.6rem);
+  border-top:1px solid var(--sage-line);background:var(--sage-soft);font-size:.885rem;color:var(--charcoal-70);}
+.quote{margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.8rem,3.5vw,2.6rem);
+  border-left:2px solid var(--gold);background:var(--cream);}
+.quote blockquote{margin:0;font-family:var(--display);font-style:italic;font-weight:500;
+  font-size:clamp(1.15rem,1.02rem + .55vw,1.5rem);line-height:1.55;color:var(--forest-deep);max-width:38ch;}
+.quote cite{display:block;margin-top:1.3rem;font-family:var(--body);font-style:normal;
+  font-size:.855rem;color:var(--charcoal-55);}
+
+/* ══════════════════════════════════════════════
+   6 · FOUNDER
+   ══════════════════════════════════════════════ */
+.founder{display:grid;gap:clamp(2rem,4.5vw,3.2rem);align-items:center;}
+@media(min-width:820px){.founder{grid-template-columns:.8fr 1.2fr;}}
+.pull{border-left:2px solid var(--gold);padding:1.6rem 0 1.6rem 1.8rem;}
+.pull p{font-family:var(--display);font-style:italic;font-weight:500;
+  font-size:clamp(1.35rem,1.15rem + .9vw,1.85rem);line-height:1.4;color:var(--forest-deep);max-width:16ch;}
+.pull span{display:block;margin-top:1.2rem;font-family:var(--body);font-style:normal;
+  font-size:.85rem;color:var(--charcoal-55);letter-spacing:.02em;}
+.founder p + p{margin-top:1.2rem;}
+.founder .sig{font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--forest);margin-top:1.6rem;}
+
+/* ══════════════════════════════════════════════
+   7 · PACKAGES — now after desire
+   ══════════════════════════════════════════════ */
+.grid-pkg{display:grid;gap:1.4rem;}
+@media(min-width:760px){.grid-pkg{grid-template-columns:1fr 1fr;}}
+.card{background:var(--cream);border:1px solid var(--sage-line);border-radius:3px;
+  padding:clamp(1.7rem,2.6vw,2.2rem);display:flex;flex-direction:column;
+  transition:border-color .4s,box-shadow .4s,transform .4s;}
+.founding{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;
+  background:var(--cream);border:1px solid var(--gold);border-radius:2px;
+  padding:.7rem 1.1rem;font-size:.83rem;color:var(--charcoal-70);max-width:none;}
+.founding b{color:var(--forest-deep);font-weight:600;}
+.was{font-size:.8rem;color:var(--charcoal-55);margin-top:.3rem;}
+.card:hover{border-color:var(--sage);box-shadow:0 12px 44px rgba(30,68,32,.07);transform:translateY(-2px);}
+.card.featured{border-color:var(--forest);position:relative;box-shadow:0 10px 40px rgba(30,68,32,.075);}
+.badge{position:absolute;top:0;right:1.8rem;transform:translateY(-50%);background:var(--gold);
+  color:#3A2E12;font-size:.665rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  padding:.45rem 1rem;border-radius:2px;white-space:nowrap;box-shadow:0 4px 14px rgba(201,169,97,.32);}
+.card-name{font-family:var(--display);font-size:1.32rem;font-weight:600;color:var(--forest-deep);}
+.card-for{font-size:.87rem;color:var(--charcoal-55);margin-top:.55rem;min-height:3.6em;}
+.price{display:flex;align-items:baseline;gap:.5rem;margin:1.5rem 0 .35rem;padding-top:1.5rem;
+  border-top:1px solid var(--sage-line);}
+.price .amt{font-family:var(--display);font-size:2.15rem;font-weight:600;color:var(--forest);line-height:1;}
+.price .cur{font-size:.82rem;color:var(--charcoal-55);font-weight:500;}
+.price-note{font-size:.815rem;color:var(--charcoal-55);}
+.feat{list-style:none;margin:1.7rem 0 0;padding:0;display:grid;gap:.8rem;flex:1;}
+.feat li{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;
+  font-size:.92rem;color:var(--charcoal-70);line-height:1.6;}
+.feat li strong{color:var(--charcoal);font-weight:600;}
+.tick{margin-top:.42rem;flex:none;}
+.card .btn{margin-top:2rem;width:100%;}
+.pkg-foot{margin-top:2.4rem;padding-top:1.8rem;border-top:1px solid var(--sage-line);
+  display:grid;gap:1.3rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.pkg-foot div{font-size:.87rem;color:var(--charcoal-70);}
+.pkg-foot b{display:block;color:var(--forest-deep);font-weight:600;margin-bottom:.28rem;font-size:.92rem;}
+
+/* ═══ TRUST STRIP ═══ */
+.trust{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  margin-top:clamp(2rem,4vw,3rem);}
+.trust div{padding-top:1.3rem;border-top:1px solid var(--sage-line);}
+.trust b{display:block;font-family:var(--display);font-size:1.05rem;font-weight:600;
+  color:var(--forest-deep);margin-bottom:.45rem;}
+.trust p{font-size:.885rem;color:var(--charcoal-70);line-height:1.65;}
+.referral{margin-top:clamp(2.4rem,4vw,3.2rem);padding:clamp(1.3rem,3vw,2rem);
+  background:var(--sage-soft);border:1px solid var(--sage-line);border-radius:3px;
+  display:flex;gap:.9rem;align-items:flex-start;flex-wrap:nowrap;}
+.referral svg{flex:none;margin-top:.25rem;}
+.referral p{font-size:.92rem;color:var(--charcoal-70);max-width:64ch;}
+.referral b{color:var(--forest-deep);font-weight:600;}
+
+/* ══════════════════════════════════════════════
+   8 · FAQ
+   ══════════════════════════════════════════════ */
+.faq{margin-top:clamp(2rem,4vw,3rem);max-width:820px;}
+.q{border-bottom:1px solid var(--sage-line);}
+.q:first-child{border-top:1px solid var(--sage-line);}
+.q button{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;
+  padding:1.55rem 0;background:none;border:none;font-family:var(--display);
+  font-size:clamp(1.02rem,.98rem + .22vw,1.14rem);font-weight:600;color:var(--forest-deep);
+  text-align:left;cursor:pointer;line-height:1.4;}
+.q .pm{flex:none;width:20px;height:20px;position:relative;margin-top:.28rem;}
+.q .pm::before,.q .pm::after{content:"";position:absolute;background:var(--gold);
+  transition:transform .38s cubic-bezier(.4,0,.2,1),opacity .3s;}
+.q .pm::before{left:0;top:9.5px;width:20px;height:1.5px;}
+.q .pm::after{left:9.5px;top:0;width:1.5px;height:20px;}
+.q[data-open="true"] .pm::after{transform:rotate(90deg);opacity:0;}
+.q .a{overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .35s;}
+.q[data-open="true"] .a{opacity:1;}
+.q .a p{padding-bottom:1.7rem;color:var(--charcoal-70);font-size:.94rem;}
+
+/* ═══ CTA / FOOTER ═══ */
+.cta-inner{text-align:center;display:flex;flex-direction:column;align-items:center;}
+.cta-inner .eyebrow{justify-content:center;}
+.cta-inner p{margin-inline:auto;}
+.cta-inner h2{max-width:18ch;}
+.cta-actions{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.4rem;}
+.cta-lede{color:rgba(250,248,245,.78);max-width:48ch;margin-top:1.5rem;}
+.cta-fine{margin-top:2rem;font-size:.845rem;color:rgba(250,248,245,.55);}
+footer{background:var(--cream);border-top:1px solid var(--sage-line);padding-block:clamp(2.8rem,5vw,4rem) 2.2rem;}
+.foot-grid{display:grid;gap:2.2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  padding-bottom:2.4rem;border-bottom:1px solid var(--sage-line);}
+.foot-grid h5{font-family:var(--body);font-size:.71rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--charcoal-55);margin:0 0 1rem;}
+.foot-grid a{display:block;font-size:.91rem;color:var(--charcoal-70);text-decoration:none;
+  padding-block:.4rem;transition:color .3s;}
+.foot-grid a:hover{color:var(--forest);}
+.foot-brand p{font-size:.9rem;color:var(--charcoal-55);margin-top:1rem;max-width:30ch;}
+.foot-bot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;
+  padding-top:1.8rem;font-size:.82rem;color:var(--charcoal-55);}
+
+/* ═══ MOTION ═══ */
+.rise{opacity:0;transform:translateY(20px);
+  transition:opacity .85s cubic-bezier(.22,.61,.36,1),transform .85s cubic-bezier(.22,.61,.36,1);}
+.rise.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important;}
+  .rise{opacity:1;transform:none;} .frond{transform:none;opacity:1;}
+  .step{opacity:1;transform:none;} html{scroll-behavior:auto;}
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1016291037675168');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1016291037675168&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="hdr">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#top" class="logo" aria-label="Fernkeep home">
+        <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true">
+          <path d="M11 25V6" stroke="#2C5F2D" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M11 10C11 10 8.2 8.6 5.6 9.4C3 10.2 2 13 2 13C2 13 4.8 14.4 7.4 13.6C10 12.8 11 10 11 10Z" fill="#A8B5A0"/>
+          <path d="M11 10C11 10 13.8 8.6 16.4 9.4C19 10.2 20 13 20 13C20 13 17.2 14.4 14.6 13.6C12 12.8 11 10 11 10Z" fill="#2C5F2D"/>
+          <path d="M11 16C11 16 8.8 15 6.8 15.6C4.8 16.2 4 18.4 4 18.4C4 18.4 6.2 19.4 8.2 18.8C10.2 18.2 11 16 11 16Z" fill="#A8B5A0"/>
+          <path d="M11 16C11 16 13.2 15 15.2 15.6C17.2 16.2 18 18.4 18 18.4C18 18.4 15.8 19.4 13.8 18.8C11.8 18.2 11 16 11 16Z" fill="#2C5F2D"/>
+          <circle cx="11" cy="4" r="2.4" fill="#C9A961"/>
+        </svg>
+        Fernkeep
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#gap">The gap</a>
+          <a href="#try">Try it</a>
+          <a href="#process">Process</a>
+          <a href="#work">Work</a>
+          <a href="#packages">Packages</a>
+        </div>
+        <a href="#start" data-book class="btn btn-primary nav-cta btn-sm"><span class="full">Book a Clarity Session</span><span class="short">Book a call</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#gap">The gap</a>
+    <a href="#try">Try the editor</a>
+    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a href="#packages">Packages</a>
+    <a href="#questions">Questions</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══ 1 · HERO ═══ -->
+<section class="hero">
+  <div class="garden" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <span class="blob b3"></span><span class="blob b4"></span><span class="blob b5"></span>
+  </div>
+  <div class="silhouettes" aria-hidden="true">
+    <svg class="sil-a" viewBox="0 0 200 400" fill="currentColor">
+      <ellipse cx="66" cy="110" rx="38" ry="13" transform="rotate(-24 66 110)"/>
+      <ellipse cx="134" cy="140" rx="34" ry="12" transform="rotate(22 134 140)"/>
+      <ellipse cx="62" cy="188" rx="42" ry="14" transform="rotate(-20 62 188)"/>
+      <ellipse cx="138" cy="222" rx="36" ry="12" transform="rotate(19 138 222)"/>
+      <ellipse cx="68" cy="270" rx="34" ry="11" transform="rotate(-17 68 270)"/>
+      <rect x="97" y="60" width="6" height="340" rx="3"/>
+    </svg>
+    <svg class="sil-b" viewBox="0 0 200 400" fill="currentColor">
+      <ellipse cx="70" cy="96" rx="40" ry="13" transform="rotate(-22 70 96)"/>
+      <ellipse cx="130" cy="128" rx="36" ry="12" transform="rotate(20 130 128)"/>
+      <ellipse cx="66" cy="176" rx="44" ry="14" transform="rotate(-18 66 176)"/>
+      <ellipse cx="134" cy="212" rx="38" ry="13" transform="rotate(18 134 212)"/>
+      <rect x="97" y="50" width="6" height="350" rx="3"/>
+    </svg>
+  </div>
+  <div class="pane" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <p class="eyebrow rise">Website design &amp; build · Toronto</p>
+    <h1 class="rise">Your expertise, <span class="accent">beautifully represented</span> online.</h1>
+    <p class="hero-lede rise">
+      You have spent years earning your reputation. Your website should carry the same weight.
+      Fernkeep builds custom websites for established professionals — and hands you the keys,
+      so you can change a word whenever you like.
+    </p>
+    <div class="hero-actions rise">
+      <a href="#try" class="btn btn-primary">
+        Try editing a website — right here
+        <svg class="arw" width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M9.4 1L14 5.5L9.4 10M13.5 5.5H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#start" data-book class="btn btn-ghost">Book a Clarity Session</a>
+    </div>
+    <p class="hero-note rise">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="7" stroke="#A8B5A0" stroke-width="1.2"/>
+        <path d="M5 8.2L7 10.2L11 6" stroke="#2C5F2D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Custom design · 2–4 weeks · Toronto and across Canada
+    </p>
+  </div>
+</section>
+
+<!-- ═══ 2 · THE GAP ═══ -->
+<section class="section band-sage" id="gap">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow rise">The gap</p>
+      <h2 class="rise">There is often a distance between how good you are and how you appear online.</h2>
+      <p class="rise" style="margin-top:1.6rem;color:var(--charcoal-70)">
+        The people we work with are excellent at what they do and receive steady referrals.
+        The website is the one part that never got the same attention — and they know it.
+      </p>
+    </div>
+    <div>
+      <ul class="gap-list">
+        <li class="rise"><span class="mark">01</span><span>
+          <strong>You hesitate before sharing the link.</strong>
+          A referral asks for your website and there is a small pause before you send it.
+          That pause is information.</span></li>
+        <li class="rise"><span class="mark">02</span><span>
+          <strong>It was built once, in a hurry, years ago.</strong>
+          It made sense at the time. Your practice has grown considerably since;
+          the website has not moved with it.</span></li>
+        <li class="rise"><span class="mark">03</span><span>
+          <strong>Every small change means waiting on someone.</strong>
+          Updating a paragraph should not require an email, an invoice and a week of patience.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 · TRY IT ═══ -->
+<section class="section" id="try">
+  <div class="wrap">
+    <div class="try-hd">
+      <span class="nudge rise">Takes ten seconds</span>
+      <h2 class="rise">Go on — change something.</h2>
+      <p class="rise">That last one is the problem we solve most often, so here is the answer
+        rather than a description of it. Type on the left. Watch the right.</p>
+    </div>
+
+    <div class="editor">
+      <div class="panel rise">
+        <div class="panel-top">
+          <span class="dot3"></span><span class="dot3"></span><span class="dot3"></span>
+          <span class="panel-title">Your editor</span>
+        </div>
+        <div class="panel-body">
+          <div class="field">
+            <label for="fHead">Headline</label>
+            <input id="fHead" type="text" maxlength="52" value="Therapy for people who think a great deal.">
+          </div>
+          <div class="field">
+            <label for="fBody">Introduction</label>
+            <textarea id="fBody" rows="3" maxlength="180">Twenty years of practice in central Toronto. In-person and online sessions, for adults navigating change.</textarea>
+          </div>
+          <div class="field">
+            <label for="fBtn">Button text</label>
+            <input id="fBtn" type="text" maxlength="26" value="Book a consultation">
+          </div>
+          <div class="field">
+            <label>Palette</label>
+            <div class="swatches" id="sw">
+              <button class="sw" aria-pressed="true"  title="Forest" data-bg="#FAF8F5" data-ink="#1E4420" data-body="#3F4A42" data-btn="#2C5F2D" data-btntx="#FAF8F5" style="background:#2C5F2D"></button>
+              <button class="sw" aria-pressed="false" title="Clay"   data-bg="#FBF7F3" data-ink="#5C3A2E" data-body="#6B5147" data-btn="#A9603F" data-btntx="#FFF8F3" style="background:#A9603F"></button>
+              <button class="sw" aria-pressed="false" title="Ink"    data-bg="#F7F7F8" data-ink="#1F2430" data-body="#454C5A" data-btn="#2B3243" data-btntx="#F7F7F8" style="background:#2B3243"></button>
+              <button class="sw" aria-pressed="false" title="Plum"   data-bg="#FAF6F8" data-ink="#432640" data-body="#5C4459" data-btn="#6E3D66" data-btntx="#FAF6F8" style="background:#6E3D66"></button>
+            </div>
+          </div>
+          <button class="publish" id="pub">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M8 3L4 7M8 3l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="pubTxt">Publish</span>
+          </button>
+          <p class="hint">Changes appear instantly. Nothing here is permanent.</p>
+        </div>
+      </div>
+
+      <div class="preview rise">
+        <div class="browser-bar">
+          <span class="dot3"></span><span class="dot3"></span><span class="dot3"></span>
+          <span class="url">yourpractice.com</span>
+        </div>
+        <div class="preview-canvas" id="canvas">
+          <h3 id="pvHead">Therapy for people who think a great deal.</h3>
+          <p id="pvBody">Twenty years of practice in central Toronto. In-person and online sessions, for adults navigating change.</p>
+          <span class="pv-btn" id="pvBtn">Book a consultation</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="try-foot rise">
+      A sketch, not the real dashboard — but the feeling is accurate. On a Clarity Session
+      we will screen-share the genuine article and you can click through it yourself.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ 4 · PROCESS ═══ -->
+<section class="section band-forest" id="process">
+  <div class="wrap">
+    <div class="process-grid">
+      <div class="fern-col">
+        <svg class="fern-svg" viewBox="0 0 240 760" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+          <defs><filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter></defs>
+          <path id="stem" class="stem"
+            d="M120 30 C 120 110, 96 150, 114 226 C 132 302, 100 336, 118 412
+               C 136 488, 104 522, 120 598 C 132 656, 118 690, 120 730"/>
+          <g class="frond" data-t="0.14" style="--ox:100%;--r0:-18deg">
+            <path d="M114 168 C 88 158, 62 164, 42 182 C 66 190, 94 186, 114 168Z" fill="#A8B5A0" opacity=".9"/>
+            <path d="M114 168 C 96 150, 74 140, 52 140 C 66 158, 92 168, 114 168Z" fill="#A8B5A0" opacity=".55"/>
+          </g>
+          <g class="frond" data-t="0.14" style="--ox:0%;--r0:16deg">
+            <path d="M116 196 C 142 190, 168 198, 186 218 C 160 224, 134 216, 116 196Z" fill="#8FA085" opacity=".75"/>
+          </g>
+          <g class="frond" data-t="0.32" style="--ox:0%;--r0:20deg">
+            <path d="M122 322 C 150 312, 178 318, 198 338 C 172 348, 142 342, 122 322Z" fill="#A8B5A0" opacity=".9"/>
+            <path d="M122 322 C 142 302, 166 292, 190 292 C 176 312, 148 324, 122 322Z" fill="#A8B5A0" opacity=".55"/>
+          </g>
+          <g class="frond" data-t="0.32" style="--ox:100%;--r0:-15deg">
+            <path d="M110 352 C 84 346, 58 354, 40 374 C 66 380, 92 372, 110 352Z" fill="#8FA085" opacity=".7"/>
+          </g>
+          <g class="frond" data-t="0.52" style="--ox:100%;--r0:-20deg">
+            <path d="M112 462 C 84 452, 56 458, 36 478 C 62 488, 92 482, 112 462Z" fill="#A8B5A0" opacity=".9"/>
+            <path d="M112 462 C 92 442, 68 432, 44 432 C 58 452, 86 464, 112 462Z" fill="#A8B5A0" opacity=".55"/>
+          </g>
+          <g class="frond" data-t="0.52" style="--ox:0%;--r0:18deg">
+            <path d="M124 492 C 150 486, 176 494, 194 514 C 168 520, 142 512, 124 492Z" fill="#8FA085" opacity=".7"/>
+          </g>
+          <g class="frond" data-t="0.72" style="--ox:0%;--r0:22deg">
+            <path d="M120 596 C 148 586, 176 592, 196 612 C 170 622, 140 616, 120 596Z" fill="#A8B5A0" opacity=".9"/>
+            <path d="M120 596 C 140 576, 164 566, 188 566 C 174 586, 146 598, 120 596Z" fill="#A8B5A0" opacity=".55"/>
+          </g>
+          <g class="frond" data-t="0.72" style="--ox:100%;--r0:-16deg">
+            <path d="M112 626 C 88 620, 64 628, 46 648 C 70 654, 94 646, 112 626Z" fill="#8FA085" opacity=".7"/>
+          </g>
+          <g class="frond" data-t="0.9" style="--ox:50%;--r0:0deg">
+            <circle cx="120" cy="722" r="7" fill="#C9A961"/>
+            <circle cx="106" cy="712" r="4.5" fill="#C9A961" opacity=".62"/>
+            <circle cx="134" cy="712" r="4.5" fill="#C9A961" opacity=".62"/>
+            <circle cx="120" cy="704" r="3.5" fill="#C9A961" opacity=".42"/>
+          </g>
+          <g class="tip" id="tip" opacity="0">
+            <circle class="tip-halo" r="9"/><circle class="tip-core" r="3.2"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="steps-rail-wrap">
+        <div class="process-intro">
+          <p class="eyebrow rise">The process</p>
+          <h2 class="rise">Five steps. You will always know where we are.</h2>
+          <p class="rise">Each stage ends with something you can see, and nothing moves forward without your word.</p>
+        </div>
+        <div class="rail"><div class="rail-fill" id="railFill"></div></div>
+        <div class="steps" id="steps">
+          <div class="step"><span class="step-n">01</span><div>
+            <h3>Strategy</h3>
+            <p>A conversation about your practice — who you serve, what makes your approach yours, and what this website genuinely needs to do. Design decisions come later, and they come from here.</p>
+          </div></div>
+          <div class="step"><span class="step-n">02</span><div>
+            <h3>Design</h3>
+            <p>A visual direction drawn from your work rather than from a trend. You see it, you respond to it, we refine it together.</p>
+          </div></div>
+          <div class="step"><span class="step-n">03</span><div>
+            <h3>Development</h3>
+            <p>Built properly — quick to load, clear to navigate, and considered on a phone as carefully as on a desktop. Contacting you is never more than a tap away.</p>
+          </div></div>
+          <div class="step"><span class="step-n">04</span><div>
+            <h3>Foundational search setup</h3>
+            <p>Page titles, descriptions and proper indexing with Google, so the people already searching your name find the right thing. Honest groundwork, no inflated promises.</p>
+          </div></div>
+          <div class="step"><span class="step-n">05</span><div>
+            <h3>Photography support</h3>
+            <p>Real photographs of you carry more trust than any stock image. We advise on what to gather, and can recommend a photographer if you would like one.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 · WORK ═══ -->
+<section class="section band-cream" id="work">
+  <div class="wrap">
+    <p class="eyebrow rise">Selected work</p>
+    <h2 class="rise" style="max-width:19ch">A practice, given a home she can manage herself.</h2>
+
+    <div class="case rise" style="margin-top:clamp(2.2rem,4vw,3.2rem)">
+      <div class="case-head">
+        <div class="case-meta">
+          <span class="tag">Presence Package</span><span class="tag">Private practice</span><span class="tag">Toronto</span>
+        </div>
+        <!-- ═══════════════════════════════════════════════════════════
+             ANONYMISED until the client confirms in writing.
+             To name her, replace the <h3> below with her name, and put
+             "Jungian analyst" and "three domain names" back into the
+             paragraph. Nothing else needs to change.
+             ═══════════════════════════════════════════════════════════ -->
+        <h3 style="font-size:clamp(1.3rem,1.15rem + .7vw,1.7rem)">A therapist in private practice</h3>
+        <p style="margin-top:.9rem;color:var(--charcoal-70)">
+          She held more than one domain name, with a single simple site between them —
+          serviceable, but built to hold information rather than to represent her. The first
+          decision was which to build properly. We began with her personal practice, then
+          followed it with a second, educational site. Both were handed over completely.
+        </p>
+      </div>
+      <div class="case-body">
+        <div class="case-col">
+          <h4>What we built</h4>
+          <ul>
+            <li><span class="dot"></span><span>A custom homepage of clearly separated sections, each editable on its own</span></li>
+            <li><span class="dot"></span><span>A writing archive she publishes to directly, without involving us</span></li>
+            <li><span class="dot"></span><span>An announcements area, with pinning and dated items that retire on their own</span></li>
+            <li><span class="dot"></span><span>Navigation, footer and contact details under her control</span></li>
+            <li><span class="dot"></span><span>Contact form and custom domain, configured and connected</span></li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <h4>What she was handed</h4>
+          <ul>
+            <li><span class="dot"></span><span>A written handover guide covering every routine task, in plain language</span></li>
+            <li><span class="dot"></span><span>A first-three-steps checklist, so nothing was ambiguous on day one</span></li>
+            <li><span class="dot"></span><span>Image guidance so the site stays quick as it grows</span></li>
+            <li><span class="dot"></span><span>A troubleshooting table for the small things that come up</span></li>
+            <li><span class="dot"></span><span>Full ownership of her content, editable at any hour without permission or invoice</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-foot">
+        The measure of this project is not the launch. It is that she has not needed to contact
+        us to change a word since.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 · FOUNDER ═══ -->
+<section class="section" id="founder">
+  <div class="wrap founder">
+    <div class="pull rise">
+      <p>Execution is the easy half.</p>
+      <span>The harder half is listening.</span>
+    </div>
+    <div>
+      <p class="eyebrow rise">Who you would be working with</p>
+      <h2 class="rise" style="max-width:18ch">Fernkeep is one person, on purpose.</h2>
+      <p class="rise" style="margin-top:1.6rem;color:var(--charcoal-70)">
+        I started building websites by helping a family member open a restaurant. I got the
+        technical side right on the first attempt and the site was still wrong — because I had
+        built what I thought a restaurant website should be, rather than what theirs was.
+      </p>
+      <p class="rise" style="color:var(--charcoal-70)">
+        The lesson has shaped everything since. Execution is the easy half. The harder and more
+        valuable half is listening closely enough to understand what someone has actually built,
+        then finding the visual language that belongs to it rather than to a trend.
+      </p>
+      <p class="rise" style="color:var(--charcoal-70)">
+        You will speak to me at every stage. Nobody is handed to an account manager and nothing
+        is subcontracted — which limits how many projects run at once, and is the reason the
+        work stays careful.
+      </p>
+      <p class="sig rise">John · Toronto</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7 · PACKAGES ═══ -->
+<section class="section band-sage" id="packages">
+  <div class="wrap">
+    <p class="eyebrow rise">Working together</p>
+    <h2 class="rise" style="max-width:22ch">Four ways to build, priced clearly.</h2>
+    <p class="rise" style="margin-top:1.5rem;color:var(--charcoal-70)">
+      All four are custom designed around your practice. What separates them is how much
+      room you need, who holds the keys afterwards, and how much of the writing you would
+      like taken off your hands.
+    </p>
+    <p class="founding rise">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex:none">
+        <circle cx="8" cy="8" r="7" stroke="#C9A961" stroke-width="1.2"/>
+        <path d="M8 4.6V8.4L10.4 9.8" stroke="#C9A961" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>These are founding rates.</b> They apply to the next three projects, while
+      Fernkeep builds its first body of work. After those, standard rates begin.</span>
+    </p>
+
+    <div class="grid-pkg" style="margin-top:clamp(2.2rem,4vw,3rem)">
+
+      <article class="card rise">
+        <h3 class="card-name">The Single Page</h3>
+        <p class="card-for">One page, done properly. For a practice that needs a credible home online and nothing more.</p>
+        <div class="price"><span class="amt">$590</span></div>
+        <p class="price-note">Founding rate · standard $890</p>
+        <ul class="feat">
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Custom single-page design</strong>, built for your practice</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Website Clarity Session to establish direction</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Contact form connected to your inbox</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Foundational search setup and Google indexing</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hosting and custom domain configured for you</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>One round of revisions</span></li>
+          <li style="color:var(--charcoal-55)"><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5H12" stroke="#A8B5A0" stroke-width="1.6" stroke-linecap="round"/></svg><span>Not self-editable. Changes come back to us.</span></li>
+        </ul>
+        <a href="#start" data-book class="btn btn-ghost">Start here</a>
+      </article>
+
+      <article class="card rise">
+        <h3 class="card-name">The Custom Site</h3>
+        <p class="card-for">Three to five pages, and we look after it. Suited to a settled practice that will not change much.</p>
+        <div class="price"><span class="amt">$1,110</span></div>
+        <p class="price-note">Founding rate · standard $1,630</p>
+        <ul class="feat">
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Everything in The Single Page</strong>, and:</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Custom design across 3–5 pages</strong> — room for your approach, your background, your services</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Two rounds of revisions</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Considered on phones as carefully as on desktop</span></li>
+          <li style="color:var(--charcoal-55)"><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5H12" stroke="#A8B5A0" stroke-width="1.6" stroke-linecap="round"/></svg><span>Later content changes come back to us, billed hourly</span></li>
+        </ul>
+        <a href="#start" data-book class="btn btn-ghost">Start with this</a>
+      </article>
+
+      <article class="card featured rise">
+        <span class="badge">Most popular</span>
+        <h3 class="card-name">The Presence Package</h3>
+        <p class="card-for">The same site, plus the keys — the editor you just used further up this page.</p>
+        <div class="price"><span class="amt">$1,480</span></div>
+        <p class="price-note">Founding rate · standard $2,070</p>
+        <ul class="feat">
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Everything in The Custom Site</strong>, and:</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Your own editor.</strong> Change text and images yourself. No code, no waiting, no invoice.</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The homepage split into sections you edit one at a time</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Writing and announcements you publish on your own schedule</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Navigation, footer and contact details under your control</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A written handover guide and a walkthrough recording</span></li>
+        </ul>
+        <a href="#start" data-book class="btn btn-primary">
+          Book a Clarity Session
+          <svg class="arw" width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M9.4 1L14 5.5L9.4 10M13.5 5.5H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="card rise">
+        <h3 class="card-name">The Signature Package</h3>
+        <p class="card-for">For a larger practice, or for anyone who would rather not write the words themselves.</p>
+        <div class="price"><span class="amt">$2,370</span></div>
+        <p class="price-note">Founding rate · standard $3,330</p>
+        <ul class="feat">
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Everything in The Presence Package</strong>, and:</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Six to eight pages</strong> — room for a fuller body of work</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>The words drafted with you</strong>, not simply tidied afterwards</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Booking or scheduling connected, so an enquiry becomes an appointment</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Photography direction — a shot list, and a briefing for your photographer</span></li>
+          <li><svg class="tick" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5L4.6 8.6L12 1.2" stroke="#2C5F2D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Three rounds of revisions, and ninety days of support after launch</span></li>
+        </ul>
+        <a href="#start" data-book class="btn btn-ghost">Enquire about this</a>
+      </article>
+    </div>
+
+    <div class="pkg-foot rise">
+      <div><b>How payment works</b>50% to reserve your place, 25% when the design is approved, 25% before launch.</div>
+      <div><b>Revisions</b>Two full rounds included. Further changes $56/hour, quoted before any work begins.</div>
+      <div><b>What we need from you</b>Final text and images within seven days of kickoff, so the project keeps its momentum.</div>
+      <div><b>Running costs</b>Hosting included. No retainer, no monthly fee to us.</div>
+    </div>
+
+    <div class="trust rise">
+      <div>
+        <b>You see it before it is built</b>
+        <p>The design is presented and approved before a line of the site is developed. Nothing is constructed that you have not already agreed to.</p>
+      </div>
+      <div>
+        <b>No surprise invoices</b>
+        <p>Every cost is quoted and agreed before the work begins. If something falls outside the package, you hear the number first, not afterwards.</p>
+      </div>
+      <div>
+        <b>A reply within one business day</b>
+        <p>During a project and after it. You will not be left wondering whether a message arrived.</p>
+      </div>
+      <div>
+        <b>Three projects at a time</b>
+        <p>A deliberate limit. It is the reason the work stays careful, and the reason the schedule occasionally has a wait.</p>
+      </div>
+    </div>
+
+    <div class="referral rise">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 17.5s-6.5-4-6.5-8.2a3.6 3.6 0 016.5-2.1 3.6 3.6 0 016.5 2.1c0 4.2-6.5 8.2-6.5 8.2z" stroke="#C9A961" stroke-width="1.3" stroke-linejoin="round"/>
+      </svg>
+      <p><b>If you send someone our way.</b> Most of our work arrives through people who
+      have already been through it. If you introduce someone and they go ahead, we credit
+      $200 of work back to your own site — a new page, a seasonal refresh, whatever you
+      happen to need. No forms, no codes; just tell us who to expect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8 · FAQ ═══ -->
+<section class="section" id="questions">
+  <div class="wrap">
+    <p class="eyebrow rise">Questions worth asking</p>
+    <h2 class="rise" style="max-width:17ch">The things people ask before we begin.</h2>
+    <div class="faq">
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>Why $800 to $2,000 when I have seen both cheaper and far dearer?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>Lower quotes generally mean a pre-made layout with your words dropped into it. Much higher quotes generally mean a larger team with a larger overhead. This sits in between deliberately: designed and built specifically for your practice, by one person who has spoken to you directly.</p></div>
+      </div>
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>What is a &ldquo;founding rate&rdquo;, and is it a sales tactic?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>It is exactly what it sounds like, and no. Fernkeep is a new studio building its first body of work, and early clients take a small risk in choosing one — so they pay less. The founding rates apply to the next three projects. After those, the standard rates listed on each package begin, and they will not be discounted back. There is no countdown clock on this page and no artificial deadline: when the three are taken, the prices simply change.</p></div>
+      </div>
+
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>I am not confident with technology. Will that be a problem?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>No — and most of the people we work with begin by saying exactly this. The technical parts are ours: hosting, the domain, the setup, the connections. What we ask of you is the part you are already expert in, which is your own work. Everything you are handed at the end is written in plain language, and nothing is left where you are expected to guess.</p></div>
+      </div>
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>How long does it take?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>Two to four weeks from kickoff in most cases. The largest variable is not the building — it is how quickly the text and photographs arrive. We ask for those within seven days of kickoff so the project holds its momentum; if they take longer, the project pauses and resumes when you are ready.</p></div>
+      </div>
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>What if I do not like the design?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>You see a direction before anything is built, and you respond to it honestly. Two full rounds of revisions are included, which is nearly always sufficient because the strategy conversation comes first and removes most of the guesswork. If more is wanted after those two rounds, it is $75 an hour and quoted before any work starts, so there is never a surprise on an invoice.</p></div>
+      </div>
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>Do I own the website, and what are the ongoing costs?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>Yes, entirely. The domain is registered in your name and the content is yours. Hosting is included; your domain renews annually with your registrar at their usual rate. The contact form is free up to fifty enquiries a month, comfortably beyond what most practices receive. There is no retainer and no monthly fee to us — nothing here depends on you staying.</p></div>
+      </div>
+      <div class="q rise" data-open="false">
+        <button aria-expanded="false"><span>Will this bring me more clients?</span><span class="pm" aria-hidden="true"></span></button>
+        <div class="a"><p>An honest answer: a website does not create demand, it converts it. What it can do is make sure the people already finding you — through a referral, a directory, a search for your name — meet something that reflects your actual standard rather than undercutting it. That is the work we can be accountable for. Anyone promising you a specific number is guessing.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9 · CTA ═══ -->
+<section class="section band-forest" id="start">
+  <div class="wrap cta-inner">
+    <p class="eyebrow rise">Begin</p>
+    <h2 class="rise">Start with a Website Clarity Session.</h2>
+    <p class="cta-lede rise">
+      Thirty minutes, at no cost. We look at where you are now, what your practice actually
+      needs, and whether we are the right people to build it. You will leave with a clear
+      view of it either way.
+    </p>
+    <div class="cta-actions rise">
+      <a href="#" data-book class="btn btn-gold">
+        Book your Clarity Session
+        <svg class="arw" width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M9.4 1L14 5.5L9.4 10M13.5 5.5H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://wa.me/16472220262?text=Hello%20Fernkeep%20%E2%80%94%20I%27d%20like%20to%20book%20a%20Website%20Clarity%20Session."
+         class="btn btn-ghost" style="border-color:rgba(168,181,160,.55);color:var(--cream)"
+         target="_blank" rel="noopener">Message on WhatsApp instead</a>
+    </div>
+    <p class="cta-fine rise">+1 647 222 0262 · Toronto, Ontario · A reply within one business day</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo" style="font-size:1.2rem">
+          <svg width="20" height="24" viewBox="0 0 22 26" fill="none" aria-hidden="true">
+            <path d="M11 25V6" stroke="#2C5F2D" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M11 10C11 10 8.2 8.6 5.6 9.4C3 10.2 2 13 2 13C2 13 4.8 14.4 7.4 13.6C10 12.8 11 10 11 10Z" fill="#A8B5A0"/>
+            <path d="M11 10C11 10 13.8 8.6 16.4 9.4C19 10.2 20 13 20 13C20 13 17.2 14.4 14.6 13.6C12 12.8 11 10 11 10Z" fill="#2C5F2D"/>
+            <path d="M11 16C11 16 8.8 15 6.8 15.6C4.8 16.2 4 18.4 4 18.4C4 18.4 6.2 19.4 8.2 18.8C10.2 18.2 11 16 11 16Z" fill="#A8B5A0"/>
+            <path d="M11 16C11 16 13.2 15 15.2 15.6C17.2 16.2 18 18.4 18 18.4C18 18.4 15.8 19.4 13.8 18.8C11.8 18.2 11 16 11 16Z" fill="#2C5F2D"/>
+            <circle cx="11" cy="4" r="2.4" fill="#C9A961"/>
+          </svg>
+          Fernkeep
+        </a>
+        <p>Your expertise, beautifully represented online.</p>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <a href="#gap">The gap</a><a href="#process">Our process</a>
+        <a href="#work">Selected work</a><a href="#founder">Who you work with</a>
+      </div>
+      <div>
+        <h5>Working together</h5>
+        <a href="#try">Try the editor</a>
+        <a href="#packages">The Single Page — $800</a>
+        <a href="#packages">The Custom Site — $1,500</a>
+        <a href="#packages">The Presence Package — $2,000</a>
+        <a href="#packages">The Signature Package — $3,200</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="https://wa.me/16472220262" target="_blank" rel="noopener">WhatsApp · +1 647 222 0262</a>
+        <a href="#start" data-book>Book a Clarity Session</a>
+        <a href="#questions">Questions</a>
+        <a href="#start">Toronto, Ontario</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="yr">2026</span> Fernkeep. Designed and built in Toronto.</span>
+      <span>Founding rates shown, for the next three projects.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ══════════════════════════════════════════════════
+     Booking link. Every "Book a Clarity Session" button
+     on the page reads from here.
+     If you later want to point straight at one event
+     type, use e.g. "https://cal.com/fernkeep/clarity-session".
+     Left empty, all buttons fall back to WhatsApp.
+     ══════════════════════════════════════════════════ */
+  var BOOKING_URL = "https://cal.com/fernkeep";
+
+  var WHATSAPP = "https://wa.me/16472220262?text=Hello%20Fernkeep%20%E2%80%94%20I%27d%20like%20to%20book%20a%20Website%20Clarity%20Session.";
+  Array.prototype.forEach.call(document.querySelectorAll('[data-book]'), function(a){
+    a.href = BOOKING_URL || WHATSAPP;
+    a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function(){
+      fbq('track', 'Lead', {content_name: 'Book Clarity Session'});
+    });
+  });
+
+  /* Header */
+  var hdr = document.getElementById('hdr');
+  function hdrState(){ hdr.classList.toggle('scrolled', window.scrollY > 12); }
+  window.addEventListener('scroll', hdrState, {passive:true}); hdrState();
+
+  /* Mobile menu */
+  var mb = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
+  mb.addEventListener('click', function(){
+    var open = mb.getAttribute('aria-expanded') === 'true';
+    mb.setAttribute('aria-expanded', String(!open));
+    mm.classList.toggle('open', !open);
+    mb.setAttribute('aria-label', !open ? 'Close menu' : 'Open menu');
+  });
+  Array.prototype.forEach.call(mm.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){
+      mb.setAttribute('aria-expanded','false'); mm.classList.remove('open');
+    });
+  });
+
+  /* Fern */
+  var section = document.getElementById('process'),
+      stem = document.getElementById('stem'), tip = document.getElementById('tip'),
+      fronds = document.querySelectorAll('.frond'), steps = document.querySelectorAll('.step'),
+      rail = document.getElementById('railFill'), L = stem.getTotalLength();
+  stem.style.strokeDasharray = L;
+  stem.style.strokeDashoffset = L;
+
+  function drawFern(){
+    var r = section.getBoundingClientRect(), vh = window.innerHeight;
+    var p = (vh * 0.8 - r.top) / (r.height - vh * 0.2);
+    p = Math.max(0, Math.min(1, p));
+    stem.style.strokeDashoffset = L * (1 - p);
+    if(p > 0.005 && p < 0.995){
+      var pt = stem.getPointAtLength(L * p);
+      tip.setAttribute('transform','translate(' + pt.x + ',' + pt.y + ')');
+      tip.setAttribute('opacity','1');
+    } else { tip.setAttribute('opacity','0'); }
+    for(var i = 0; i < fronds.length; i++){
+      fronds[i].classList.toggle('grown', p >= parseFloat(fronds[i].dataset.t));
+    }
+    if(rail) rail.style.height = (p * 100) + '%';
+  }
+  var queued = false;
+  function onScroll(){
+    if(queued) return;
+    queued = true;
+    requestAnimationFrame(function(){ drawFern(); queued = false; });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  drawFern();
+
+  /* Steps + reveals */
+  if('IntersectionObserver' in window){
+    var stepIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.target.classList.toggle('active', e.isIntersecting); });
+    }, {rootMargin:'-32% 0px -32% 0px'});
+    Array.prototype.forEach.call(steps, function(s){ stepIO.observe(s); });
+
+    var riseIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var sibs = e.target.parentElement
+          ? Array.prototype.slice.call(e.target.parentElement.querySelectorAll(':scope > .rise')) : [];
+        var i = Math.max(0, sibs.indexOf(e.target));
+        e.target.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
+        e.target.classList.add('in');
+        riseIO.unobserve(e.target);
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    Array.prototype.forEach.call(document.querySelectorAll('.rise'), function(el){ riseIO.observe(el); });
+  } else {
+    Array.prototype.forEach.call(steps, function(s){ s.classList.add('active'); });
+    Array.prototype.forEach.call(document.querySelectorAll('.rise'), function(el){ el.classList.add('in'); });
+  }
+
+  /* FAQ */
+  Array.prototype.forEach.call(document.querySelectorAll('.q'), function(q){
+    var btn = q.querySelector('button'), ans = q.querySelector('.a');
+    btn.addEventListener('click', function(){
+      var open = q.getAttribute('data-open') === 'true';
+      Array.prototype.forEach.call(document.querySelectorAll('.q'), function(o){
+        if(o !== q){
+          o.setAttribute('data-open','false');
+          o.querySelector('button').setAttribute('aria-expanded','false');
+          o.querySelector('.a').style.maxHeight = '0px';
+        }
+      });
+      q.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+      ans.style.maxHeight = !open ? (ans.scrollHeight + 'px') : '0px';
+    });
+  });
+  window.addEventListener('resize', function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.q[data-open="true"] .a'), function(a){
+      a.style.maxHeight = a.scrollHeight + 'px';
+    });
+  });
+
+  /* Editor demo */
+  var head = document.getElementById('fHead'), body = document.getElementById('fBody'),
+      btnF = document.getElementById('fBtn'), pvH = document.getElementById('pvHead'),
+      pvB = document.getElementById('pvBody'), pvT = document.getElementById('pvBtn'),
+      cnv = document.getElementById('canvas');
+  head.addEventListener('input', function(){ pvH.textContent = head.value || 'Your headline'; });
+  body.addEventListener('input', function(){ pvB.textContent = body.value || 'Your introduction.'; });
+  btnF.addEventListener('input', function(){ pvT.textContent = btnF.value || 'Get in touch'; });
+
+  function paint(el){
+    cnv.style.background = el.dataset.bg;
+    pvH.style.color = el.dataset.ink;
+    pvB.style.color = el.dataset.body;
+    pvT.style.background = el.dataset.btn;
+    pvT.style.color = el.dataset.btntx;
+  }
+  var sws = document.querySelectorAll('#sw .sw');
+  Array.prototype.forEach.call(sws, function(s){
+    s.addEventListener('click', function(){
+      Array.prototype.forEach.call(sws, function(o){ o.setAttribute('aria-pressed','false'); });
+      s.setAttribute('aria-pressed','true');
+      paint(s);
+    });
+  });
+  paint(sws[0]);
+
+  var pub = document.getElementById('pub'), pubTxt = document.getElementById('pubTxt'), t;
+  pub.addEventListener('click', function(){
+    fbq('track', 'ViewContent', {content_name: 'Editor Demo Published'});
+    clearTimeout(t);
+    pub.classList.add('done');
+    pubTxt.textContent = 'Published';
+    cnv.classList.remove('flash');
+    void cnv.offsetWidth;
+    cnv.classList.add('flash');
+    t = setTimeout(function(){
+      pub.classList.remove('done');
+      pubTxt.textContent = 'Publish';
+    }, 1900);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
